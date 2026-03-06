@@ -1,0 +1,7 @@
+{
+  "library_name": "My Zotero Research Library",
+  "workspace_dir": "./workspace",
+  "zotero_storage_path": "/ABSOLUTE/PATH/TO/Zotero/storage",
+  "zotero_export_path": "/ABSOLUTE/PATH/TO/zotero-export.json",
+  "default_idea_path": "./workspace/ideas/current_idea.md"
+}

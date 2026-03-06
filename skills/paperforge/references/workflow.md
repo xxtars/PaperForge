@@ -9,6 +9,12 @@ Papers may reach Zotero in two ways:
 
 If you need executor-assisted acquisition, see `acquisition.md`.
 
+If this skill was installed by itself, create a config first:
+
+```bash
+python3 skills/paperforge/scripts/init_config.py
+```
+
 ## 1. Sync Zotero Into Local Memory
 
 Run:

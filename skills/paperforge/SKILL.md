@@ -9,6 +9,8 @@ This skill turns a Zotero library into a local research memory that OpenClaw or 
 
 `PaperForge` supports optional built-in acquisition tasks for OpenClaw or Codex, but still treats Zotero as the source boundary for the core memory loop.
 
+This skill is self-contained. If installed by itself, initialize local config from `assets/paperforge.config.example.json` via `scripts/init_config.py`.
+
 ## Use This Skill For
 
 - importing Zotero exports and attachment paths into a local workspace
@@ -39,17 +41,18 @@ Split responsibilities cleanly:
 
 1. Optional: create an acquisition task with `python3 skills/paperforge/scripts/init_acquisition_task.py --config paperforge.config.json --title "paper title"`
 2. If acquisition happened, save the result with `python3 skills/paperforge/scripts/save_acquisition_result.py --config paperforge.config.json --input /path/to/result.json`
-3. Run `python3 skills/paperforge/scripts/watch_zotero.py --config paperforge.config.json --interval 30` for automatic detection, or run `sync_zotero.py` manually.
-4. Inspect `workspace/index/pending_summaries.json`
-5. For each pending paper:
+3. If `paperforge.config.json` does not exist yet, create it with `python3 skills/paperforge/scripts/init_config.py`
+4. Run `python3 skills/paperforge/scripts/watch_zotero.py --config paperforge.config.json --interval 30` for automatic detection, or run `sync_zotero.py` manually.
+5. Inspect `workspace/index/pending_summaries.json`
+6. For each pending paper:
    - run `python3 skills/paperforge/scripts/init_summary_task.py --config paperforge.config.json --paper-id <paper_id>`
    - read the generated task file and `references/summary_prompt.md`
    - read the linked PDF
    - produce structured memory following `references/schemas.md`
    - persist it with `python3 skills/paperforge/scripts/save_memory.py --config paperforge.config.json --paper-id <paper_id> --input /path/to/memory.json`
-6. Before answering a research question, build a context bundle:
+7. Before answering a research question, build a context bundle:
    - `python3 skills/paperforge/scripts/build_context.py --config paperforge.config.json --question "..." --idea workspace/ideas/current_idea.md`
-7. Read `references/qa_prompt.md` and use the generated context bundle as the grounding package for the executor's final answer.
+8. Read `references/qa_prompt.md` and use the generated context bundle as the grounding package for the executor's final answer.
 
 ## When To Read References
 
@@ -65,6 +68,7 @@ Split responsibilities cleanly:
 - `source.json` stores imported Zotero metadata and attachment paths.
 - `memory.json` stores structured AI understanding of a paper.
 - `context/*.json` stores evidence bundles for downstream reasoning.
+- `assets/` contains templates and example inputs required to use the skill standalone.
 - Keep `memory.json` machine-readable and concise. Put the final long-form answer in executor output, not inside the memory file.
 
 ## Retrieval Rules

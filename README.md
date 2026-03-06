@@ -1,6 +1,6 @@
 # PaperForge
 
-This repository is an OpenClaw-style skill for a local research agent built around Zotero.
+This repository contains a self-contained OpenClaw-style skill for a local research agent built around Zotero.
 
 The system is intentionally split into three layers:
 
@@ -22,6 +22,9 @@ Acquisition is still upstream and optional, but the repository now includes buil
 skills/paperforge/
   SKILL.md
   agents/openai.yaml
+  assets/
+    paperforge.config.example.json
+    zotero-export.sample.json
   references/
     summary_prompt.md
     qa_prompt.md
@@ -32,6 +35,7 @@ skills/paperforge/
     workflow.md
   scripts/
     common.py
+    init_config.py
     init_acquisition_task.py
     save_acquisition_result.py
     sync_zotero.py
@@ -48,6 +52,7 @@ paperforge.config.example.json
 ## Setup
 
 1. Copy `paperforge.config.example.json` to `paperforge.config.json`.
+   If you install only `skills/paperforge/`, run `python3 skills/paperforge/scripts/init_config.py` instead.
 2. Fill in your local Zotero paths.
 3. Run:
 
