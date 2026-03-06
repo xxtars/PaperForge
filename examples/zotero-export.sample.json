@@ -1,0 +1,20 @@
+[
+  {
+    "key": "ABCD1234",
+    "title": "A Benchmark for Literature Review Agents",
+    "date": "2025",
+    "abstractNote": "We study agentic workflows for literature review automation and propose an evaluation benchmark.",
+    "creators": [
+      { "firstName": "Ada", "lastName": "Lovelace" },
+      { "firstName": "Grace", "lastName": "Hopper" }
+    ],
+    "tags": [
+      { "tag": "benchmark" },
+      { "tag": "agents" }
+    ],
+    "collections": ["reading-inbox"],
+    "attachments": [
+      { "path": "storage:AB/CD/paper.pdf" }
+    ]
+  }
+]

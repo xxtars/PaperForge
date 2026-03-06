@@ -1,0 +1,4 @@
+interface:
+  display_name: "PaperForge"
+  short_description: "Build Zotero-backed memory for idea-centered research"
+  default_prompt: "Use $paperforge to sync Zotero papers, store AI summaries, and assemble local evidence for idea-centered Q&A."
